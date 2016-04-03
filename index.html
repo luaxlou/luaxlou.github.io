@@ -92,12 +92,13 @@
       
         <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
 <li><a href="https://zhaoda.gitbooks.io/webpack/content/" target="_blank" rel="external">Webpack 中文指南</a></li>
+<li><a href="http://reactjs.cn/" target="_blank" rel="external">Reactjs 中文文档</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="cimk7vgwj0004r5uk45eaaq6q" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="cimkpudgv000181ukrpk3yq17" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
@@ -139,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/02/Javascript-Develop-Tips/" data-id="cimk7vgwc0001r5ukqo8lzk4g" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/02/Javascript-Develop-Tips/" data-id="cimkpudh2000481uk1s7f20al" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
@@ -192,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/31/Sublime-Text-3-Develop-Tips/" data-id="cimk7vgwq000cr5ukm9kabg6t" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/31/Sublime-Text-3-Develop-Tips/" data-id="cimkpudh9000c81uktsvowwxd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text-3/">Sublime Text 3</a></li></ul>
@@ -244,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="cimk7vgwn0008r5uknzmmnjrc" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="cimkpudh7000981uknffdy59j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Natvie/">React Natvie</a></li></ul>
@@ -278,8 +279,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="构建系统"><a href="#构建系统" class="headerlink" title="构建系统"></a>构建系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack -g</span><br><span class="line">$ npm install css-loader style-loader </span><br><span class="line">$ npm install --save-dev browser-sync-webpack-plugin</span><br></pre></td></tr></table></figure>
-<h3 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js:"></a>webpack.config.js:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> BrowserSyncPlugin = <span class="built_in">require</span>(<span class="string">'browser-sync-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./app/entry.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname,</span><br><span class="line">    filename: <span class="string">"./public/bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loader: <span class="string">"style!css"</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> BrowserSyncPlugin(&#123;</span><br><span class="line">      host: <span class="string">'localhost'</span>,</span><br><span class="line">      port: <span class="number">3000</span>,</span><br><span class="line">      server: &#123;</span><br><span class="line">        baseDir: [<span class="string">'./public'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="构建系统"><a href="#构建系统" class="headerlink" title="构建系统"></a>构建系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack -g</span><br><span class="line">$ npm install css-loader style-loader</span><br><span class="line">$ npm install browser-sync-webpack-plugin --save-dev</span><br><span class="line">$ npm install react --save-dev</span><br><span class="line">$ npm install babel-core babel-loader --save-dev</span><br><span class="line">$ npm install babel-preset-react --save-dev</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2016/03/29/Nodejs项目构件收集/#more">Read More</a>
@@ -288,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/29/Nodejs项目构件收集/" data-id="cimk7vgwh0003r5uka4fv9ezw" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/29/Nodejs项目构件收集/" data-id="cimkpudgq000081uk51ai1x9v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -336,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="cimk7vgw70000r5uk5vlfns88" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="cimkpudh0000381ukyjty3u80" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -381,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2014/04/30/PMBOK中文（第五版）读书笔记/" data-id="cimk7vgwo0009r5uk4o39nyq3" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2014/04/30/PMBOK中文（第五版）读书笔记/" data-id="cimkpudh6000881uk6iogx1l9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
@@ -424,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2013/12/08/PHP-Linux-Cli-模式下利用-pcntl-fork实现多进程处理/" data-id="cimk7vgwk0006r5ukkdts53y0" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2013/12/08/PHP-Linux-Cli-模式下利用-pcntl-fork实现多进程处理/" data-id="cimkpudh3000681ukjzt445h0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pcntl-fork/">pcntl_fork</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多进程/">多进程</a></li></ul>
