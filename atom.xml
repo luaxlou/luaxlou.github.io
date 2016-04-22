@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.luaxlou.com/"/>
-  <updated>2016-04-16T03:08:53.000Z</updated>
+  <updated>2016-04-22T02:34:39.000Z</updated>
   <id>http://www.luaxlou.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native IDE Nuclide Tips</title>
+    <link href="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/"/>
+    <id>http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/</id>
+    <published>2016-04-21T23:38:00.000Z</published>
+    <updated>2016-04-22T02:34:39.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Lastest: React Native v0.23.1,Atom v1.7.2,Nuclide v0.131.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github上选择最新的发布版本,不要选择官网的下载链接&lt;br&gt;(&lt;a href=&quot;https://github.com/atom/atom/releases&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/atom/atom/releases&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;安装Nuclide插件,使用APM安装,cross wall&lt;br&gt;apm install nuclide –verbose&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;flow 无法启动&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ brew upgrade flow&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;根目录下运行flow看看&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ flow&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.flowconfig:91 Wrong version of Flow. The config specifies version 0.22.0 but this is version 0.22.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;修改.flowconfig,矫正版本号&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lastest: React Native v0.23.1,Atom v1.7.2,Nuclide v0.131.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github上选择最新的发布版本,不要选择官网的下载链接&lt;br&gt;(&lt;a href=&quot;https://github.com/atom/atom/releases&quot;&gt;https://github.com/atom/atom/releases&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;安装Nuclide插件,使用APM安装,cross wall&lt;br&gt;apm install nuclide –verbose&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="React Native" scheme="http://www.luaxlou.com/tags/React-Native/"/>
+    
+      <category term="Nuclide" scheme="http://www.luaxlou.com/tags/Nuclide/"/>
+    
+      <category term="Atom" scheme="http://www.luaxlou.com/tags/Atom/"/>
+    
+  </entry>
   
   <entry>
     <title>Nodejs Develop Tips</title>
@@ -51,47 +91,11 @@
   </entry>
   
   <entry>
-    <title>Sublime Text 3 Develop Tips</title>
-    <link href="http://www.luaxlou.com/2016/03/31/Sublime-Text-3-Develop-Tips/"/>
-    <id>http://www.luaxlou.com/2016/03/31/Sublime-Text-3-Develop-Tips/</id>
-    <published>2016-03-31T04:07:33.000Z</published>
-    <updated>2016-04-03T06:59:07.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Install Package &lt;/a&gt;&lt;br&gt;Preferences &amp;gt; Setting &amp;gt; User&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;ignored_packages&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;Vintage&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;Package Control&quot;&lt;/span&gt;  //干掉这一行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;command + Q,重启sublime&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;command + shift + p ,RTX热键冲突,关闭&lt;/li&gt;
-&lt;li&gt;command + shift + p, Install Package&lt;ul&gt;
-&lt;li&gt;MarkdownEditing&lt;/li&gt;
-&lt;li&gt;JsFormat&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;打开VI模式&lt;br&gt;Preferences &amp;gt; Setting &amp;gt; User&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;ignored_packages&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;Vintage&quot;&lt;/span&gt; //干掉这一行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Install Package &lt;/a&gt;&lt;br&gt;Preferences &amp;gt; Setting &amp;g
-    
-    </summary>
-    
-    
-      <category term="Sublime Text 3" scheme="http://www.luaxlou.com/tags/Sublime-Text-3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>React Native Develop Tips</title>
     <link href="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/"/>
     <id>http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/</id>
     <published>2016-03-31T03:24:37.000Z</published>
-    <updated>2016-04-21T23:32:47.000Z</updated>
+    <updated>2016-04-22T02:33:25.000Z</updated>
     
     <content type="html">&lt;p&gt;Lastest: React Native v0.22,Xcode 7.2.1&lt;/p&gt;
 &lt;h2 id=&quot;资料&quot;&gt;&lt;a href=&quot;#资料&quot; class=&quot;headerlink&quot; title=&quot;资料&quot;&gt;&lt;/a&gt;资料&lt;/h2&gt;&lt;ul&gt;
@@ -103,14 +107,6 @@
 &lt;li&gt;&lt;a href=&quot;http://camsong.github.io/redux-in-chinese/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Redux 中文文档&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;IDE&quot;&gt;&lt;a href=&quot;#IDE&quot; class=&quot;headerlink&quot; title=&quot;IDE&quot;&gt;&lt;/a&gt;IDE&lt;/h2&gt;&lt;h3 id=&quot;Atom-Nuclide-环境安装&quot;&gt;&lt;a href=&quot;#Atom-Nuclide-环境安装&quot; class=&quot;headerlink&quot; title=&quot;Atom+Nuclide 环境安装&quot;&gt;&lt;/a&gt;Atom+Nuclide 环境安装&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Github上选择最新的发布版本,不要选择官网的下载链接&lt;br&gt;(&lt;a href=&quot;https://github.com/atom/atom/releases&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/atom/atom/releases&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;安装Nuclide插件,使用APM安装,cross wall&lt;br&gt;apm install nuclide –verbose&lt;/li&gt;
-&lt;li&gt;flow 无法启动&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ brew upgrade flow&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;根目录下运行flow看看&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ flow&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.flowconfig:91 Wrong version of Flow. The config specifies version 0.22.0 but this is version 0.22.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;修改.flowconfig,矫正版本号&lt;/p&gt;
 &lt;h2 id=&quot;IOS&quot;&gt;&lt;a href=&quot;#IOS&quot; class=&quot;headerlink&quot; title=&quot;IOS&quot;&gt;&lt;/a&gt;IOS&lt;/h2&gt;&lt;h3 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;ctrl + commond +z 和QQ冲突,关闭&lt;/li&gt;
 &lt;li&gt;ctrl + commond +z 开启 Live Reload&lt;/li&gt;
