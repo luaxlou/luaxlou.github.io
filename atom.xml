@@ -95,7 +95,7 @@
     <link href="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/"/>
     <id>http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/</id>
     <published>2016-03-31T03:24:37.000Z</published>
-    <updated>2016-04-22T02:33:25.000Z</updated>
+    <updated>2016-04-22T02:42:03.000Z</updated>
     
     <content type="html">&lt;p&gt;Lastest: React Native v0.22,Xcode 7.2.1&lt;/p&gt;
 &lt;h2 id=&quot;资料&quot;&gt;&lt;a href=&quot;#资料&quot; class=&quot;headerlink&quot; title=&quot;资料&quot;&gt;&lt;/a&gt;资料&lt;/h2&gt;&lt;ul&gt;
@@ -105,6 +105,7 @@
 &lt;li&gt;&lt;a href=&quot;http://f8-app.liaohuqiu.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;构建 Facebook F8 2016 App / React Native 开发指南&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://redux.js.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Redux 英文文档&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://camsong.github.io/redux-in-chinese/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Redux 中文文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/a-guide-to-flexbox.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一个完整的Flexbox指南&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;IOS&quot;&gt;&lt;a href=&quot;#IOS&quot; class=&quot;headerlink&quot; title=&quot;IOS&quot;&gt;&lt;/a&gt;IOS&lt;/h2&gt;&lt;h3 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h3&gt;&lt;ul&gt;
@@ -136,6 +137,7 @@
 &lt;li&gt;&lt;a href=&quot;http://f8-app.liaohuqiu.net/&quot;&gt;构建 Facebook F8 2016 App / React Native 开发指南&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux 英文文档&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://camsong.github.io/redux-in-chinese/&quot;&gt;Redux 中文文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/a-guide-to-flexbox.html&quot;&gt;一个完整的Flexbox指南&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
@@ -150,7 +152,7 @@
     <link href="http://www.luaxlou.com/2016/03/29/React-Project-Tips/"/>
     <id>http://www.luaxlou.com/2016/03/29/React-Project-Tips/</id>
     <published>2016-03-29T07:27:02.000Z</published>
-    <updated>2016-04-04T05:17:34.000Z</updated>
+    <updated>2016-04-22T02:40:27.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;install-packages&quot;&gt;&lt;a href=&quot;#install-packages&quot; class=&quot;headerlink&quot; title=&quot;install packages&quot;&gt;&lt;/a&gt;install packages&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm i webpack -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i css-loader style-loader -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i browser-sync-webpack-plugin -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i react -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i babel-core babel-loader -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i babel-preset-es2015 babel-preset-react -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i mongoose -D&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm i commander -D&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -167,7 +169,7 @@
     </summary>
     
     
-      <category term="nodejs" scheme="http://www.luaxlou.com/tags/nodejs/"/>
+      <category term="node.js" scheme="http://www.luaxlou.com/tags/node-js/"/>
     
       <category term="webpack" scheme="http://www.luaxlou.com/tags/webpack/"/>
     
@@ -228,7 +230,7 @@
     <link href="http://www.luaxlou.com/2014/04/30/PMBOK%E4%B8%AD%E6%96%87%EF%BC%88%E7%AC%AC%E4%BA%94%E7%89%88%EF%BC%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.luaxlou.com/2014/04/30/PMBOK中文（第五版）读书笔记/</id>
     <published>2014-04-30T05:46:00.000Z</published>
-    <updated>2016-04-03T06:18:33.000Z</updated>
+    <updated>2016-04-22T02:40:13.000Z</updated>
     
     <content type="html">&lt;p&gt;1.2 什么是项目&lt;/p&gt;
 &lt;p&gt;2014-04-27 19:53:44&lt;/p&gt;
@@ -318,6 +320,8 @@
     
     
       <category term="项目管理" scheme="http://www.luaxlou.com/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="pmbok" scheme="http://www.luaxlou.com/tags/pmbok/"/>
     
   </entry>
   
