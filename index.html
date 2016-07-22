@@ -74,6 +74,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-one-unittest-describe-testunit-assertions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/23/one-unittest-describe-testunit-assertions/" class="article-date">
+  <time datetime="2016-07-22T16:19:47.000Z" itemprop="datePublished">2016-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/one-unittest-describe-testunit-assertions/">一个单元测试描述Test::Unit::Assertions语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最进使用Ruby测试框架,选择使用 Test::Unit作为测试方法,下面的代码整理了常用的断言语法(其他的可能基本不太可能用上).当然对应的断言语法大多数都有not的反义判断.比如assert_true 和assert_not_true.</p>
+<p>整体来说,感觉不太够用,毕竟这个库比较老.接下去可能会研究下minitest的源码.最后不行的话,可能会自己动手写测试框架.rspec还是算了</p>
+<script src="//gist.github.com/0becbc05912d7bb5275d703d68e5fff2.js?file=test_unit_assertions_test.rb"></script>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ ruby assertions_test.rb -v --use-color=<span class="literal">true</span> </span><br><span class="line">...</span><br><span class="line">Started</span><br><span class="line">F</span><br><span class="line">===============================================================================</span><br><span class="line">Failure: 强制断言失败.看到这条失败断言,表示上面所有的断言通过.</span><br><span class="line"><span class="built_in">test</span>_assertions(AssertionsTest)</span><br><span class="line">assertions_test.rb:41:<span class="keyword">in</span> <span class="built_in">test</span>_assertions</span><br><span class="line">     38:     assert_empty(&#123;&#125;)</span><br><span class="line">     39:     assert_path_exist(<span class="string">"/tmp"</span>)</span><br><span class="line">     40: </span><br><span class="line">  =&gt; 41:     flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></span><br><span class="line">     42:   end</span><br><span class="line">     43: </span><br><span class="line">     44: </span><br><span class="line">===============================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Finished <span class="keyword">in</span> 0.001588 seconds.</span><br><span class="line"></span><br><span class="line">1 tests, 17 assertions, 1 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications</span><br><span class="line">0% passed</span><br><span class="line"></span><br><span class="line">629.72 tests/s, 10705.29 assertions/s</span><br><span class="line"></span><br><span class="line">Process finished with <span class="built_in">exit</span> code 1</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/" data-id="ciqy05n2u0008dxuk2ri5d0ck" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ruby-tdd-testunit-minitest-respec-and-rake" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" class="article-date">
@@ -127,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="ciqtku8wh0008h5ukkot5y0wa" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="ciqy05n2v0009dxuklbyhyax0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/minitest/">minitest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rake/">rake</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rspec/">rspec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
@@ -174,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="ciqtku8wd0004h5uk6lwnurtq" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="ciqy05n2q0004dxuk1qxlfh4a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Atom/">Atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nuclide/">Nuclide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -226,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="ciqtku8w50001h5ukzt7sdf9g" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="ciqy05n2j0001dxukmsvsam5d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -278,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="ciqtku8wb0003h5uks5ulrfxp" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="ciqy05n2o0003dxuk6c5p1f6k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -327,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="ciqtku8wf0006h5ukzprkp8f3" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="ciqy05n2s0006dxukqaote6jn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -378,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="ciqtku8vy0000h5ukyw1m1o8c" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="ciqy05n2e0000dxuk6hy3u8lq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -412,7 +453,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Nuclide/" style="font-size: 10px;">Nuclide</a> <a href="/tags/React-Native/" style="font-size: 20px;">React Native</a> <a href="/tags/babel/" style="font-size: 10px;">babel</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/minitest/" style="font-size: 10px;">minitest</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/rake/" style="font-size: 10px;">rake</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rspec/" style="font-size: 10px;">rspec</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/tdd/" style="font-size: 10px;">tdd</a> <a href="/tags/testunit/" style="font-size: 10px;">testunit</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Nuclide/" style="font-size: 10px;">Nuclide</a> <a href="/tags/React-Native/" style="font-size: 20px;">React Native</a> <a href="/tags/babel/" style="font-size: 10px;">babel</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/minitest/" style="font-size: 10px;">minitest</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/rake/" style="font-size: 10px;">rake</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rspec/" style="font-size: 10px;">rspec</a> <a href="/tags/ruby/" style="font-size: 20px;">ruby</a> <a href="/tags/tdd/" style="font-size: 20px;">tdd</a> <a href="/tags/testunit/" style="font-size: 20px;">testunit</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
     </div>
   </div>
 
@@ -434,6 +475,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/23/one-unittest-describe-testunit-assertions/">一个单元测试描述Test::Unit::Assertions语法</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/">Ruby TDD best choice,Test::Unit</a>
           </li>
         
@@ -447,10 +492,6 @@
         
           <li>
             <a href="/2016/03/31/React-Native-Develop-Tips/">React Native Develop Tips</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/29/React-Project-Tips/">React Project Tips</a>
           </li>
         
       </ul>
