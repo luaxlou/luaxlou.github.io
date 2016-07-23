@@ -98,12 +98,12 @@
       
         <p>最进使用Ruby测试框架,选择使用 Test::Unit作为测试方法,下面的代码整理了常用的断言语法(其他的可能基本不太可能用上).当然对应的断言语法大多数都有not的反义判断.比如assert_true 和assert_not_true.</p>
 <p>整体来说,感觉不太够用,毕竟这个库比较老.接下去可能会研究下minitest的源码.最后不行的话,可能会自己动手写测试框架.rspec还是算了</p>
-<script src="//gist.github.com/0becbc05912d7bb5275d703d68e5fff2.js?file=test_unit_assertions_test.rb"></script>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">require 'test/unit'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TestUnitAssertionsTest &lt; Test::Unit::TestCase</span><br><span class="line"></span><br><span class="line">  def setup</span><br><span class="line"></span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  def test_assertions</span><br><span class="line"></span><br><span class="line">    assert_block "block返回值不正确" do</span><br><span class="line">      true</span><br><span class="line">    end</span><br><span class="line">    assert_equal('Yes', 'Yes')</span><br><span class="line">    assert 1, '对象不能为false和nil'</span><br><span class="line">    assert_true true</span><br><span class="line">    assert_raise '需要抛出一个异常' do</span><br><span class="line">      raise Exception</span><br><span class="line">    end</span><br><span class="line">    assert_nothing_raised '不能抛出异常' do</span><br><span class="line">      # raise Exception</span><br><span class="line">    end</span><br><span class="line">    assert_raise_message "exception" do</span><br><span class="line">      raise "exception"</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    assert_instance_of String, '', '预期的类型和实际类型不符'</span><br><span class="line">    assert_nil nil</span><br><span class="line">    assert_respond_to 'a string', :reverse, '对象预期的方法不存在'</span><br><span class="line">    assert_match /\d+/, 'five, 6, seven'</span><br><span class="line">    o = Object.new</span><br><span class="line">    assert_same o, o</span><br><span class="line">    assert_empty("")</span><br><span class="line">    assert_empty([])</span><br><span class="line">    assert_empty(&#123;&#125;)</span><br><span class="line">    assert_path_exist("/tmp")</span><br><span class="line"></span><br><span class="line">    flunk '强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  def teardown</span><br><span class="line"></span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ ruby assertions_test.rb -v --use-color=<span class="literal">true</span> </span><br><span class="line">...</span><br><span class="line">Started</span><br><span class="line">F</span><br><span class="line">===============================================================================</span><br><span class="line">Failure: 强制断言失败.看到这条失败断言,表示上面所有的断言通过.</span><br><span class="line"><span class="built_in">test</span>_assertions(AssertionsTest)</span><br><span class="line">assertions_test.rb:41:<span class="keyword">in</span> <span class="built_in">test</span>_assertions</span><br><span class="line">     38:     assert_empty(&#123;&#125;)</span><br><span class="line">     39:     assert_path_exist(<span class="string">"/tmp"</span>)</span><br><span class="line">     40: </span><br><span class="line">  =&gt; 41:     flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></span><br><span class="line">     42:   end</span><br><span class="line">     43: </span><br><span class="line">     44: </span><br><span class="line">===============================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Finished <span class="keyword">in</span> 0.001588 seconds.</span><br><span class="line"></span><br><span class="line">1 tests, 17 assertions, 1 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications</span><br><span class="line">0% passed</span><br><span class="line"></span><br><span class="line">629.72 tests/s, 10705.29 assertions/s</span><br><span class="line"></span><br><span class="line">Process finished with <span class="built_in">exit</span> code 1</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/" data-id="ciqy0es8e0008g8uk72ws9rfw" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/" data-id="ciqyi1ya70009n1ukexwbbgi2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
@@ -168,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="ciqy0es8g0009g8uk51e6frzi" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="ciqyi1ya50008n1uk1a6ulgjc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/minitest/">minitest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rake/">rake</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rspec/">rspec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
@@ -215,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="ciqy0es8a0003g8ukud0e1a8e" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="ciqyi1ya00003n1ukj681g7lb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Atom/">Atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nuclide/">Nuclide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -267,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="ciqy0es8c0006g8uk988m40hr" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="ciqyi1y9p0000n1ukua0e7bhp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -319,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="ciqy0es840001g8uko64h809s" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="ciqyi1y9u0001n1ukvjzjtfir" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -368,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="ciqy0es8b0004g8uk6er429ja" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="ciqyi1ya20006n1ukfkn3p9qx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -419,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="ciqy0es800000g8ukb0yxfotj" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="ciqyi1ya10004n1uk3dkxjbrf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
