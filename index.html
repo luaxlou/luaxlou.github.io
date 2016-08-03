@@ -74,6 +74,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jianshu_5099255" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/03/jianshu_5099255/" class="article-date">
+  <time datetime="2016-08-03T15:00:27.000Z" itemprop="datePublished">2016-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/03/jianshu_5099255/">使用简书作为写作base,同步文章到hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><p>简书把写作的门槛降到了最低,但是又不想放弃Blog.因此萌生了使用使用简书作为写作base,同步文章到hexo的想法.</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="同步策略"><a href="#同步策略" class="headerlink" title="同步策略"></a>同步策略</h4><p>如果仅仅是同步文章,太简单了,对于一个开放性的网站,抓取就够了.但是如果能同步markdown就完美了,但是简书这边没有提供api.<br>这里就两个方案</p>
+<p>1 同步html,然后动态解析为markdown,复杂度较高<br>2 登陆,然后同步markdown,滑动验证码没研究过,感觉投入产出比相对较高,因此可以使用selenium做半自动登陆,下面是关键代码.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@driver.get(BASE_URL + <span class="string">"/sign_in"</span>)</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).clear</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).send_keys username</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).clear</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).send_keys password</div><div class="line"></div><div class="line"><span class="comment">#等待1000秒直到滑动验证码被验证成功,点击登录</span></div><div class="line">wait = Selenium::WebDriver::Wait.new(<span class="symbol">:timeout</span> =&gt; <span class="number">1000</span>)</div><div class="line">wait.<span class="keyword">until</span> &#123; @driver.find_element(<span class="symbol">:class_name</span>, <span class="string">"gt_ajax_tip"</span>).attribute(<span class="string">'class'</span>).<span class="keyword">include</span>? <span class="string">'success'</span> &#125;</div><div class="line">@driver.find_element(<span class="symbol">:class_name</span>, <span class="string">'ladda-button'</span>).click</div></pre></td></tr></table></figure>
+<p>这里选择了方案2</p>
+<p>登陆状态的保存可以将cookie写入到文件,这样就不需要每次都启动selenium重新登陆一次.<br>同时,同步文章的时候考虑到如果使用selenium打开浏览器挨个请求一遍效率太低.所以在已有登陆cookie的情况下,将cookie写入到mechanize,使用mechanize做网络请求.</p>
+<h4 id="图片的问题"><a href="#图片的问题" class="headerlink" title="图片的问题"></a>图片的问题</h4><p>这是开发到后面的是发现的,简书的图片是动态cache访问的,也就是说没有永久存在的地址,所以这个需要先下过来.</p>
+<h3 id="用到的工具"><a href="#用到的工具" class="headerlink" title="用到的工具"></a>用到的工具</h3><ul>
+<li>ruby</li>
+<li>selenium</li>
+<li>mechanize</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>同样的思路可以用于登陆门槛较高的场景,比如说需要手机验证码登陆,等.</li>
+<li>简书将很多写作体验就简化了,比如标签的设定,SEO的设定等的.要接受这点,才能让你专心到写作上.其实想想也是,如果你不做自媒体,又何必关心搜索引擎是否会收录.</li>
+<li>花了点时间把想做的事做了,得益于这些前辈们开发了这么好的工具,让我如此简单的能达到我的目的,在此表示感谢.</li>
+<li>写作的目的,如果想多了,自然负担就多了.</li>
+</ul>
+<p>完整代码 <a href="https://gist.githubusercontent.com/luaxlou/4759eebf03fdd165b90d01eaa81cf6f3/raw/3a1ce504e4dee0b79f2f931be9e28caa66b856c4/sync_jianshu_to_hexo.rb" target="_blank" rel="external">gist</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.luaxlou.com/2016/08/03/jianshu_5099255/" data-id="cirf0v1tp000p08uk2th1p7x6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-one-unittest-describe-testunit-assertions" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/23/one-unittest-describe-testunit-assertions/" class="article-date">
@@ -103,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/" data-id="cire6egi9000ps4ukdc1tgv7z" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/" data-id="cirf0v1tx000r08ukzg9llfcl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
@@ -168,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="cire6egia000rs4ukcikq9ux0" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/" data-id="cirf0v1ty000u08ukx6mpiddo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/minitest/">minitest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rake/">rake</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rspec/">rspec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tdd/">tdd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testunit/">testunit</a></li></ul>
@@ -215,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="cire6eghl0004s4ukqb2yrn7h" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/" data-id="cirf0v1sy000408ukgjwg43dx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Atom/">Atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nuclide/">Nuclide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -267,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="cire6eghd0001s4ukb5ye3avg" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/" data-id="cirf0v1sq000108ukmhmcd1q8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -319,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="cire6eghi0003s4ukdu9cor0h" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/" data-id="cirf0v1sw000308ukl2f85spj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
@@ -368,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="cire6eghn0006s4ukler7ubnh" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/29/React-Project-Tips/" data-id="cirf0v1t1000608uk0ustg2yi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -419,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="cire6egh90000s4ukzt4ob2g4" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2016/03/28/Hexo-Tips/" data-id="cirf0v1sm000008uku03cf0na" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -458,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2015/09/03/jianshu_1908695/" data-id="cire6egi5000ns4uklyo7x4ki" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2015/09/03/jianshu_1908695/" data-id="cirf0v1tk000n08ukxa3q1kpt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
@@ -499,54 +556,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2015/09/03/jianshu_1908634/" data-id="cire6egi3000ms4ukucc8ukg0" class="article-share-link">Share</a>
+      <a data-url="http://www.luaxlou.com/2015/09/03/jianshu_1908634/" data-id="cirf0v1tg000k08ukcvaqhnnp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jianshu_1707565" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/25/jianshu_1707565/" class="article-date">
-  <time datetime="2015-08-25T15:30:35.000Z" itemprop="datePublished">2015-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/25/jianshu_1707565/">Agile Java：编程进阶必读</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/698777-3bbbd3170e22f03d.png" alt="Paste_Image.png"></p>
-<p>　　这本书是我工作的第三个年头在上海新华书店发现的。略厚的一本，看到之后，如获至宝。</p>
-<p>　　这本书的编写思路是，先编写一个类似编写过程式的代码。一步一步的教你用TDD的思路去重构，最后得到一个比较ok的代码。他会告诉你哪里不太合适，并且教你如何用TDD去重构。</p>
-<p>　　值得一提的是，这本书对于不懂Java的人来说，也能看得懂。因为例子浅显易懂，这个可以当作为Java的入门书籍。</p>
-<p>　　在工作生涯中，有好几次编写复杂模块的时候用TDD的方式去实践。实践的结果是，开发速度没有明显下降，但是BUG率一直保持在0%，而且编码期间，我还会进行多次重构，以消除不合适的代码。当时的感觉超棒。<br>　　<br>　　可以说，这本书对我的编码风格影响最为深远。谨以此文作为对作者的感谢吧。
-　　</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.luaxlou.com/2015/08/25/jianshu_1707565/" data-id="cire6eghy000hs4ukoo6qgwfc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
 
     </footer>
   </div>
@@ -571,7 +584,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclide/">Nuclide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/minitest/">minitest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rake/">rake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rspec/">rspec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tdd/">tdd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testunit/">testunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclide/">Nuclide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/minitest/">minitest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rake/">rake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rspec/">rspec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tdd/">tdd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testunit/">testunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -581,7 +594,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Nuclide/" style="font-size: 10px;">Nuclide</a> <a href="/tags/React-Native/" style="font-size: 13.33px;">React Native</a> <a href="/tags/babel/" style="font-size: 10px;">babel</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/minitest/" style="font-size: 10px;">minitest</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/rake/" style="font-size: 10px;">rake</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rspec/" style="font-size: 10px;">rspec</a> <a href="/tags/ruby/" style="font-size: 13.33px;">ruby</a> <a href="/tags/tdd/" style="font-size: 13.33px;">tdd</a> <a href="/tags/testunit/" style="font-size: 13.33px;">testunit</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/读书/" style="font-size: 20px;">读书</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Nuclide/" style="font-size: 10px;">Nuclide</a> <a href="/tags/React-Native/" style="font-size: 13.33px;">React Native</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/babel/" style="font-size: 10px;">babel</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/minitest/" style="font-size: 10px;">minitest</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/rake/" style="font-size: 10px;">rake</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rspec/" style="font-size: 10px;">rspec</a> <a href="/tags/ruby/" style="font-size: 13.33px;">ruby</a> <a href="/tags/tdd/" style="font-size: 13.33px;">tdd</a> <a href="/tags/testunit/" style="font-size: 13.33px;">testunit</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/读书/" style="font-size: 20px;">读书</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
     </div>
   </div>
 
@@ -590,7 +603,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li></ul>
     </div>
   </div>
 
@@ -601,6 +614,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/08/03/jianshu_5099255/">使用简书作为写作base,同步文章到hexo</a>
+          </li>
         
           <li>
             <a href="/2016/07/23/one-unittest-describe-testunit-assertions/">一个单元测试描述Test::Unit::Assertions语法</a>
@@ -616,10 +633,6 @@
         
           <li>
             <a href="/2016/04/03/Nodejs-Develop-Tips/">Nodejs Develop Tips</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/31/React-Native-Develop-Tips/">React Native Develop Tips</a>
           </li>
         
       </ul>
