@@ -66,7 +66,7 @@
     <link href="http://www.itsmylife.top/2016/08/03/jianshu_5099255/"/>
     <id>http://www.itsmylife.top/2016/08/03/jianshu_5099255/</id>
     <published>2016-08-03T15:03:57.000Z</published>
-    <updated>2020-04-14T14:13:34.037Z</updated>
+    <updated>2020-04-14T16:55:50.728Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><p>简书把写作的门槛降到了最低,但是又不想放弃Blog.因此萌生了使用使用简书作为写作base,同步文章到hexo的想法.</p><a id="more"></a><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="同步策略"><a href="#同步策略" class="headerlink" title="同步策略"></a>同步策略</h4><p>如果仅仅是同步文章,太简单了,对于一个开放性的网站,抓取就够了.但是如果能同步markdown就完美了,但是简书这边没有提供api.<br>这里就两个方案</p><p>1 同步html,然后动态解析为markdown,复杂度较高<br>2 登陆,然后同步markdown,滑动验证码没研究过,感觉投入产出比相对较高,因此可以使用selenium做半自动登陆,下面是关键代码.</p><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@driver.get(BASE_URL + <span class="string">"/sign_in"</span>)</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).clear</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).send_keys username</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).clear</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).send_keys password</span><br><span class="line"></span><br><span class="line"><span class="comment">#等待1000秒直到滑动验证码被验证成功,点击登录</span></span><br><span class="line">wait = Selenium::WebDriver::Wait.new(<span class="symbol">:timeout</span> =&gt; <span class="number">1000</span>)</span><br><span class="line">wait.<span class="keyword">until</span> &#123; @driver.find_element(<span class="symbol">:class_name</span>, <span class="string">"gt_ajax_tip"</span>).attribute(<span class="string">'class'</span>).<span class="keyword">include</span>? <span class="string">'success'</span> &#125;</span><br><span class="line">@driver.find_element(<span class="symbol">:class_name</span>, <span class="string">'ladda-button'</span>).click</span><br></pre></td></tr></table></figure><p>这里选择了方案2</p><p>登陆状态的保存可以将cookie写入到文件,这样就不需要每次都启动selenium重新登陆一次.<br>同时,同步文章的时候考虑到如果使用selenium打开浏览器挨个请求一遍效率太低.所以在已有登陆cookie的情况下,将cookie写入到mechanize,使用mechanize做网络请求.</p><h4 id="图片的问题"><a href="#图片的问题" class="headerlink" title="图片的问题"></a>图片的问题</h4><p>这是开发到后面的是发现的,简书的图片是动态cache访问的,也就是说没有永久存在的地址,所以这个需要先下过来.</p><h3 id="用到的工具"><a href="#用到的工具" class="headerlink" title="用到的工具"></a>用到的工具</h3><ul><li>ruby</li><li>selenium</li><li>mechanize</li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>同样的思路可以用于登陆门槛较高的场景,比如说需要手机验证码登陆,等.</li><li>简书将很多写作体验就简化了,比如标签的设定,SEO的设定等的.要接受这点,才能让你专心到写作上.其实想想也是,如果你不做自媒体,又何必关心搜索引擎是否会收录.</li><li>花了点时间把想做的事做了,得益于这些前辈们开发了这么好的工具,让我如此简单的能达到我的目的,在此表示感谢.</li><li>写作的目的,如果想多了,自然负担就多了.</li></ul><p>完整代码 <a href="https://gist.github.com/luaxlou/4759eebf03fdd165b90d01eaa81cf6f3" target="_blank" rel="noopener">gist</a></p>]]></content>
     
@@ -77,8 +77,10 @@
     </summary>
     
     
-      <category term="Ruby" scheme="http://www.itsmylife.top/categories/Ruby/"/>
+      <category term="编程" scheme="http://www.itsmylife.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
+    
+      <category term="ruby" scheme="http://www.itsmylife.top/tags/ruby/"/>
     
   </entry>
   
