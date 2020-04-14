@@ -42,6 +42,27 @@
   </entry>
   
   <entry>
+    <title>影响程序员一生的书单</title>
+    <link href="http://www.itsmylife.top/2017/01/14/programer-best-books/"/>
+    <id>http://www.itsmylife.top/2017/01/14/programer-best-books/</id>
+    <published>2017-01-14T15:58:07.000Z</published>
+    <updated>2020-04-14T18:03:38.913Z</updated>
+    
+    <content type="html"><![CDATA[<p>这些年看的书,整理了下比较经典的,希望给渴望成长的程序员一点帮助.</p><a id="more"></a><h2 id="编程思想"><a href="#编程思想" class="headerlink" title="编程思想:"></a>编程思想:</h2><ul><li><a href="https://book.douban.com/subject/1917831/" target="_blank" rel="noopener">《Agile Java》</a> <strong>JEFF LANGR</strong></li><li><a href="http://www.ituring.com.cn/book/211" target="_blank" rel="noopener">《重构：改善既有代码的设计》</a> <strong>Martin Fowler</strong></li><li><a href="https://book.douban.com/subject/2243615/" target="_blank" rel="noopener">《Head First 设计模式（中文版）》</a>  ** 弗里曼 ** </li><li><a href="https://book.douban.com/subject/5387402/" target="_blank" rel="noopener">《程序员修炼之道:从小工到专家》</a> ** Andrew Hunt  , David Thomas **</li><li><a href="https://book.douban.com/subject/4199741/" target="_blank" rel="noopener">《代码整洁之道》</a> ** Robert C. Martin **</li><li><a href="https://book.douban.com/subject/1477390/" target="_blank" rel="noopener"> 《代码大全（第二版）》</a> ** Steve McConnell **</li></ul><h2 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发:"></a>敏捷开发:</h2><ul><li><a href="http://www.ituring.com.cn/book/1897" target="_blank" rel="noopener">《软件开发本质论：追求简约、体现价值、逐步构建》</a> *<em>Ron Jeffries *</em></li><li><a href="https://book.douban.com/subject/1790225/" target="_blank" rel="noopener">《解析极限编程: 拥抱变化（第二版）》</a> ** Kent Beck **</li><li><a href="https://book.douban.com/subject/1140457/" target="_blank" rel="noopener"> 《敏捷软件开发:原则、模式与实践》</a> ** Robert C. Martin ** </li></ul><h2 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h2><ul><li><a href="http://www.ituring.com.cn/book/645" target="_blank" rel="noopener">《UML用户指南(第2版)》</a> <strong>Grady Booch ， James Raumbaugh ， Ivar Jacobson</strong></li><li><a href="http://www.ituring.com.cn/book/1573" target="_blank" rel="noopener">《微服务设计》</a> <strong>Sam Newman</strong></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这些年看的书,整理了下比较经典的,希望给渴望成长的程序员一点帮助.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="http://www.itsmylife.top/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>测试架构师修炼之道：从测试工程师到测试架构师</title>
     <link href="http://www.itsmylife.top/2016/08/03/jianshu_5100970/"/>
     <id>http://www.itsmylife.top/2016/08/03/jianshu_5100970/</id>
