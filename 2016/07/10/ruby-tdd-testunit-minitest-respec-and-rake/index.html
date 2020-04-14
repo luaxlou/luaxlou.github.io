@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ruby TDD best choice,Test::Unit | Good night,Geeker!</title>
+
+  
+  <title>Ruby TDD best choice,Test::Unit | Geeker Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Ruby实践TDD的一些经验之谈在实践TDD的过程中,使用了一些Ruby TDD框架,经过一番选择,最终选择了Test::Unit,实际上Test::Unit是一个较老的框架. 列举TDD中要解决的一些实践性问题 执行时长,这个很重要,否则CI是一件痛苦的事 编写效率,这个重要性同等,选择Ruby正是这个原因 可读性,在Ruby这已经算是不错了 可编程性,TDD可不是DSL能干的事,使用编程语言来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ruby TDD best choice,Test::Unit">
 <meta property="og:url" content="http://www.itsmylife.top/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/index.html">
-<meta property="og:site_name" content="Good night,Geeker!">
+<meta property="og:site_name" content="Geeker Life">
 <meta property="og:description" content="Ruby实践TDD的一些经验之谈在实践TDD的过程中,使用了一些Ruby TDD框架,经过一番选择,最终选择了Test::Unit,实际上Test::Unit是一个较老的框架. 列举TDD中要解决的一些实践性问题 执行时长,这个很重要,否则CI是一件痛苦的事 编写效率,这个重要性同等,选择Ruby正是这个原因 可读性,在Ruby这已经算是不错了 可编程性,TDD可不是DSL能干的事,使用编程语言来">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-07-10T03:31:03.000Z">
@@ -23,16 +25,16 @@
 <meta property="article:tag" content="rake">
 <meta name="twitter:card" content="summary">
   
+    <link rel="alternate" href="/atom.xml" title="Geeker Life" type="application/atom+xml">
   
-    <link rel="icon" href="/favicon.ico">
+  
+    <link rel="icon" href="/favicon.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
 <link rel="stylesheet" href="/css/style.css">
-
-  
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -44,11 +46,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Good night,Geeker!</a>
+        <a href="/" id="logo">Geeker Life</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">晚安,John.</a>
+          <a href="/" id="subtitle">Good night,Geeker.</a>
         </h2>
       
     </div>
@@ -58,16 +60,12 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="http://www.jianshu.com/users/874f1907d1a6/latest_articles" target="_blank" rel="noopener">简书</a>
-        
-          <a class="main-nav-link" href="https://github.com/luaxlou/" target="_blank" rel="noopener">Github</a>
-        
           <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/atom.xml">rss</a>
         
       </nav>
       <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
@@ -246,13 +244,7 @@
   
     <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="http://www.jianshu.com/users/874f1907d1a6/latest_articles" target="_blank" rel="noopener" class="mobile-nav-link">简书</a>
-  
-    <a href="https://github.com/luaxlou/" target="_blank" rel="noopener" class="mobile-nav-link">Github</a>
-  
     <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/atom.xml" class="mobile-nav-link">rss</a>
   
 </nav>
     
@@ -270,6 +262,8 @@
 
 
 <script src="/js/script.js"></script>
+
+
 
 
   </div>
