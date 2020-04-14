@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.itsmylife.top/"/>
-  <updated>2020-04-14T16:21:39.480Z</updated>
+  <updated>2020-04-14T17:59:17.504Z</updated>
   <id>http://www.itsmylife.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac下装上这些软件，让你的效率飞起来。</title>
+    <link href="http://www.itsmylife.top/2017/01/15/mac-softwares/"/>
+    <id>http://www.itsmylife.top/2017/01/15/mac-softwares/</id>
+    <published>2017-01-14T16:12:23.000Z</published>
+    <updated>2020-04-14T17:59:17.504Z</updated>
+    
+    <content type="html"><![CDATA[<p>工欲善其事，必先利其器。<br>Mac必装的软件，大部分是免费。</p><a id="more"></a><p>App类.</p><ul><li>[收费] 1Password <a href="http://1password.com：最好用的密码管理软件，没有之一。遗憾的是以前的版本一次性买断，现在月付有点小贵了。">http://1password.com：最好用的密码管理软件，没有之一。遗憾的是以前的版本一次性买断，现在月付有点小贵了。</a></li><li>[收费] Alfred <a href="http://www.alfredapp.com/：应该说是mac标配。" target="_blank" rel="noopener">http://www.alfredapp.com/：应该说是mac标配。</a></li><li>滴答清单 <a href="https://www.dida365.com：安排好你的工作，生活">https://www.dida365.com：安排好你的工作，生活</a></li><li>iTerm2 <a href="http://www.iterm2.com/：爱不释手。" target="_blank" rel="noopener">http://www.iterm2.com/：爱不释手。</a></li><li>Oh My Zsh <a href="http://ohmyz.sh/：同上。" target="_blank" rel="noopener">http://ohmyz.sh/：同上。</a></li><li>Keka <a href="http://www.kekaosx.com/：各种压缩包。" target="_blank" rel="noopener">http://www.kekaosx.com/：各种压缩包。</a></li><li>Wireshark <a href="https://www.wireshark.org/：这个，科学研究必备。" target="_blank" rel="noopener">https://www.wireshark.org/：这个，科学研究必备。</a></li><li>Evernote <a href="https://evernote.com/intl/zh-cn/：一直想找替代品，可是没找到，确实是很方便的工具。多端同步。" target="_blank" rel="noopener">https://evernote.com/intl/zh-cn/：一直想找替代品，可是没找到，确实是很方便的工具。多端同步。</a></li><li>Postman <a href="https://www.getpostman.com/：" target="_blank" rel="noopener">https://www.getpostman.com/：</a> 开发必备。</li><li>Robo 3T <a href="https://robomongo.org/：开发必备。" target="_blank" rel="noopener">https://robomongo.org/：开发必备。</a></li><li>Feem <a href="https://www.feem.io/：局域网共享目前认为最好的工具，用过就知道爽。" target="_blank" rel="noopener">https://www.feem.io/：局域网共享目前认为最好的工具，用过就知道爽。</a></li><li>New file menu free [<a href="https://apps.apple.com/us/app/new-file-menu-free/id1066302071?mt=12]" target="_blank" rel="noopener">https://apps.apple.com/us/app/new-file-menu-free/id1066302071?mt=12]</a>(<a href="https://apps.apple.com/us/app/new-file-m" target="_blank" rel="noopener">https://apps.apple.com/us/app/new-file-m</a> enu-free/id1066302071?mt=12): 有了它后，Finder 就可以直接New File了，个人认为就不需要安装XtraFinder之类了。</li><li>Typora.app <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a>：真是被低估了的markdown写作神器，开启文件树加上github.com，简直是居家旅行，写作，笔记，必备之大杀器。</li></ul><p>Saas类：</p><ul><li>Tower.im <a href="https://tower.im/：remote标配。" target="_blank" rel="noopener">https://tower.im/：remote标配。</a></li><li>Chartmage <a href="http://chartmage.com/" target="_blank" rel="noopener">http://chartmage.com</a>：最好用的在线时序图，没有之一。</li><li>Naotu <a href="http://naotu.baidu.com/：百度的脑图很棒。" target="_blank" rel="noopener">http://naotu.baidu.com/：百度的脑图很棒。</a></li><li>Jianshu  <a href="https://www.jianshu.com/" target="_blank" rel="noopener">https://www.jianshu.com/</a>：这个不多说了，如果你有写作的习惯，或者把他当笔记，没有比这更简单的工具了。</li><li>Online audio converter (<a href="https://online-audio-converter.com/" target="_blank" rel="noopener">https://online-audio-converter.com/</a>: 如标题</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工欲善其事，必先利其器。&lt;br&gt;Mac必装的软件，大部分是免费。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://www.itsmylife.top/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="mac" scheme="http://www.itsmylife.top/tags/mac/"/>
+    
+      <category term="效率" scheme="http://www.itsmylife.top/tags/%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
   
   <entry>
     <title>测试架构师修炼之道：从测试工程师到测试架构师</title>
