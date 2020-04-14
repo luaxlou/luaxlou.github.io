@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Good night,John!</title>
-  <subtitle>晚安,程序员.</subtitle>
+  <title>Good night,Geeker!</title>
+  <subtitle>晚安,John.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.luaxlou.com/"/>
+  <link href="http://www.itsmylife.top/"/>
   <updated>2016-08-03T15:31:54.000Z</updated>
-  <id>http://www.luaxlou.com/</id>
+  <id>http://www.itsmylife.top/</id>
   
   <author>
     <name>John Lou</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>测试架构师修炼之道：从测试工程师到测试架构师</title>
-    <link href="http://www.luaxlou.com/2016/08/03/jianshu_5100970/"/>
-    <id>http://www.luaxlou.com/2016/08/03/jianshu_5100970/</id>
+    <link href="http://www.itsmylife.top/2016/08/03/jianshu_5100970/"/>
+    <id>http://www.itsmylife.top/2016/08/03/jianshu_5100970/</id>
     <published>2016-08-03T15:31:42.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -36,14 +36,14 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>人件(原书第3版)：以人的视角解读软件工程项目管理</title>
-    <link href="http://www.luaxlou.com/2016/08/03/jianshu_5101343/"/>
-    <id>http://www.luaxlou.com/2016/08/03/jianshu_5101343/</id>
+    <link href="http://www.itsmylife.top/2016/08/03/jianshu_5101343/"/>
+    <id>http://www.itsmylife.top/2016/08/03/jianshu_5101343/</id>
     <published>2016-08-03T15:31:39.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -61,21 +61,21 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>使用简书作为写作base,同步文章到hexo</title>
-    <link href="http://www.luaxlou.com/2016/08/03/jianshu_5099255/"/>
-    <id>http://www.luaxlou.com/2016/08/03/jianshu_5099255/</id>
+    <link href="http://www.itsmylife.top/2016/08/03/jianshu_5099255/"/>
+    <id>http://www.itsmylife.top/2016/08/03/jianshu_5099255/</id>
     <published>2016-08-03T15:03:57.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><p>简书把写作的门槛降到了最低,但是又不想放弃Blog.因此萌生了使用使用简书作为写作base,同步文章到hexo的想法.</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="同步策略"><a href="#同步策略" class="headerlink" title="同步策略"></a>同步策略</h4><p>如果仅仅是同步文章,太简单了,对于一个开放性的网站,抓取就够了.但是如果能同步markdown就完美了,但是简书这边没有提供api.<br>这里就两个方案</p>
 <p>1 同步html,然后动态解析为markdown,复杂度较高<br>2 登陆,然后同步markdown,滑动验证码没研究过,感觉投入产出比相对较高,因此可以使用selenium做半自动登陆,下面是关键代码.</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@driver.get(BASE_URL + <span class="string">"/sign_in"</span>)</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).clear</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).send_keys username</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).clear</div><div class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).send_keys password</div><div class="line"></div><div class="line"><span class="comment">#等待1000秒直到滑动验证码被验证成功,点击登录</span></div><div class="line">wait = Selenium::WebDriver::Wait.new(<span class="symbol">:timeout</span> =&gt; <span class="number">1000</span>)</div><div class="line">wait.<span class="keyword">until</span> &#123; @driver.find_element(<span class="symbol">:class_name</span>, <span class="string">"gt_ajax_tip"</span>).attribute(<span class="string">'class'</span>).<span class="keyword">include</span>? <span class="string">'success'</span> &#125;</div><div class="line">@driver.find_element(<span class="symbol">:class_name</span>, <span class="string">'ladda-button'</span>).click</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@driver.get(BASE_URL + <span class="string">"/sign_in"</span>)</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).clear</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_name"</span>).send_keys username</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).clear</span><br><span class="line">@driver.find_element(<span class="symbol">:id</span>, <span class="string">"sign_in_password"</span>).send_keys password</span><br><span class="line"></span><br><span class="line"><span class="comment">#等待1000秒直到滑动验证码被验证成功,点击登录</span></span><br><span class="line">wait = Selenium::WebDriver::Wait.new(<span class="symbol">:timeout</span> =&gt; <span class="number">1000</span>)</span><br><span class="line">wait.<span class="keyword">until</span> &#123; @driver.find_element(<span class="symbol">:class_name</span>, <span class="string">"gt_ajax_tip"</span>).attribute(<span class="string">'class'</span>).<span class="keyword">include</span>? <span class="string">'success'</span> &#125;</span><br><span class="line">@driver.find_element(<span class="symbol">:class_name</span>, <span class="string">'ladda-button'</span>).click</span><br></pre></td></tr></table></figure>
 <p>这里选择了方案2</p>
 <p>登陆状态的保存可以将cookie写入到文件,这样就不需要每次都启动selenium重新登陆一次.<br>同时,同步文章的时候考虑到如果使用selenium打开浏览器挨个请求一遍效率太低.所以在已有登陆cookie的情况下,将cookie写入到mechanize,使用mechanize做网络请求.</p>
 <h4 id="图片的问题"><a href="#图片的问题" class="headerlink" title="图片的问题"></a>图片的问题</h4><p>这是开发到后面的是发现的,简书的图片是动态cache访问的,也就是说没有永久存在的地址,所以这个需要先下过来.</p>
@@ -90,7 +90,7 @@
 <li>花了点时间把想做的事做了,得益于这些前辈们开发了这么好的工具,让我如此简单的能达到我的目的,在此表示感谢.</li>
 <li>写作的目的,如果想多了,自然负担就多了.</li>
 </ul>
-<p>完整代码 <a href="https://gist.github.com/luaxlou/4759eebf03fdd165b90d01eaa81cf6f3" target="_blank" rel="external">gist</a></p>
+<p>完整代码 <a href="https://gist.github.com/luaxlou/4759eebf03fdd165b90d01eaa81cf6f3" target="_blank" rel="noopener">gist</a></p>
 ]]></content>
     
     <summary type="html">
@@ -101,21 +101,21 @@
     </summary>
     
     
-      <category term="Ruby" scheme="http://www.luaxlou.com/tags/Ruby/"/>
+      <category term="Ruby" scheme="http://www.itsmylife.top/tags/Ruby/"/>
     
   </entry>
   
   <entry>
     <title>一个单元测试描述Test::Unit::Assertions语法</title>
-    <link href="http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/"/>
-    <id>http://www.luaxlou.com/2016/07/23/one-unittest-describe-testunit-assertions/</id>
+    <link href="http://www.itsmylife.top/2016/07/23/one-unittest-describe-testunit-assertions/"/>
+    <id>http://www.itsmylife.top/2016/07/23/one-unittest-describe-testunit-assertions/</id>
     <published>2016-07-22T16:19:47.000Z</published>
     <updated>2016-07-23T06:34:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>最进使用Ruby测试框架,选择使用 Test::Unit作为测试方法,下面的代码整理了常用的断言语法(其他的可能基本不太可能用上).当然对应的断言语法大多数都有not的反义判断.比如assert_true 和assert_not_true.</p>
 <p>整体来说,感觉不太够用,毕竟这个库比较老.接下去可能会研究下minitest的源码.最后不行的话,可能会自己动手写测试框架.rspec还是算了</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'test/unit'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestUnitAssertionsTest</span> &lt; Test::Unit::<span class="title">TestCase</span></span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">setup</span></span></div><div class="line"></div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_assertions</span></span></div><div class="line"></div><div class="line">    assert_block <span class="string">"block返回值不正确"</span> <span class="keyword">do</span></div><div class="line">      <span class="literal">true</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    assert_equal(<span class="string">'Yes'</span>, <span class="string">'Yes'</span>)</div><div class="line">    assert <span class="number">1</span>, <span class="string">'对象不能为false和nil'</span></div><div class="line">    assert_true <span class="literal">true</span></div><div class="line">    assert_raise <span class="string">'需要抛出一个异常'</span> <span class="keyword">do</span></div><div class="line">      raise Exception</div><div class="line">    <span class="keyword">end</span></div><div class="line">    assert_nothing_raised <span class="string">'不能抛出异常'</span> <span class="keyword">do</span></div><div class="line">      <span class="comment"># raise Exception</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    assert_raise_message <span class="string">"exception"</span> <span class="keyword">do</span></div><div class="line">      raise <span class="string">"exception"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    assert_instance_of String, <span class="string">''</span>, <span class="string">'预期的类型和实际类型不符'</span></div><div class="line">    assert_nil <span class="literal">nil</span></div><div class="line">    assert_respond_to <span class="string">'a string'</span>, <span class="symbol">:reverse</span>, <span class="string">'对象预期的方法不存在'</span></div><div class="line">    assert_match(<span class="regexp">/\d+/</span>, <span class="string">'five, 6, seven'</span>)</div><div class="line">    o = Object.new</div><div class="line">    assert_same o, o</div><div class="line">    assert_empty(<span class="string">""</span>)</div><div class="line">    assert_empty([])</div><div class="line">    assert_empty(&#123;&#125;)</div><div class="line">    assert_path_exist(<span class="string">"/tmp"</span>)</div><div class="line"></div><div class="line">    flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teardown</span></span></div><div class="line"></div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">$ ruby assertions_test.rb -v --use-color=<span class="literal">true</span> </div><div class="line">...</div><div class="line">Started</div><div class="line">F</div><div class="line">===============================================================================</div><div class="line">Failure: 强制断言失败.看到这条失败断言,表示上面所有的断言通过.</div><div class="line"><span class="built_in">test</span>_assertions(AssertionsTest)</div><div class="line">assertions_test.rb:41:<span class="keyword">in</span> <span class="built_in">test</span>_assertions</div><div class="line">     38:     assert_empty(&#123;&#125;)</div><div class="line">     39:     assert_path_exist(<span class="string">"/tmp"</span>)</div><div class="line">     40: </div><div class="line">  =&gt; 41:     flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></div><div class="line">     42:   end</div><div class="line">     43: </div><div class="line">     44: </div><div class="line">===============================================================================</div><div class="line"></div><div class="line"></div><div class="line">Finished <span class="keyword">in</span> 0.001588 seconds.</div><div class="line"></div><div class="line">1 tests, 17 assertions, 1 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications</div><div class="line">0% passed</div><div class="line"></div><div class="line">629.72 tests/s, 10705.29 assertions/s</div><div class="line"></div><div class="line">Process finished with <span class="built_in">exit</span> code 1</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'test/unit'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestUnitAssertionsTest</span> &lt; Test::Unit::<span class="title">TestCase</span></span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">setup</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_assertions</span></span></span><br><span class="line"></span><br><span class="line">    assert_block <span class="string">"block返回值不正确"</span> <span class="keyword">do</span></span><br><span class="line">      <span class="literal">true</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    assert_equal(<span class="string">'Yes'</span>, <span class="string">'Yes'</span>)</span><br><span class="line">    assert <span class="number">1</span>, <span class="string">'对象不能为false和nil'</span></span><br><span class="line">    assert_true <span class="literal">true</span></span><br><span class="line">    assert_raise <span class="string">'需要抛出一个异常'</span> <span class="keyword">do</span></span><br><span class="line">      raise Exception</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    assert_nothing_raised <span class="string">'不能抛出异常'</span> <span class="keyword">do</span></span><br><span class="line">      <span class="comment"># raise Exception</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    assert_raise_message <span class="string">"exception"</span> <span class="keyword">do</span></span><br><span class="line">      raise <span class="string">"exception"</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    assert_instance_of String, <span class="string">''</span>, <span class="string">'预期的类型和实际类型不符'</span></span><br><span class="line">    assert_nil <span class="literal">nil</span></span><br><span class="line">    assert_respond_to <span class="string">'a string'</span>, <span class="symbol">:reverse</span>, <span class="string">'对象预期的方法不存在'</span></span><br><span class="line">    assert_match(<span class="regexp">/\d+/</span>, <span class="string">'five, 6, seven'</span>)</span><br><span class="line">    o = Object.new</span><br><span class="line">    assert_same o, o</span><br><span class="line">    assert_empty(<span class="string">""</span>)</span><br><span class="line">    assert_empty([])</span><br><span class="line">    assert_empty(&#123;&#125;)</span><br><span class="line">    assert_path_exist(<span class="string">"/tmp"</span>)</span><br><span class="line"></span><br><span class="line">    flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teardown</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ ruby assertions_test.rb -v --use-color=<span class="literal">true</span> </span><br><span class="line">...</span><br><span class="line">Started</span><br><span class="line">F</span><br><span class="line">===============================================================================</span><br><span class="line">Failure: 强制断言失败.看到这条失败断言,表示上面所有的断言通过.</span><br><span class="line">test_assertions(AssertionsTest)</span><br><span class="line">assertions_test.rb:41:<span class="keyword">in</span> test_assertions</span><br><span class="line">     38:     assert_empty(&#123;&#125;)</span><br><span class="line">     39:     assert_path_exist(<span class="string">"/tmp"</span>)</span><br><span class="line">     40: </span><br><span class="line">  =&gt; 41:     flunk <span class="string">'强制断言失败.看到这条失败断言,表示上面所有的断言通过.'</span></span><br><span class="line">     42:   end</span><br><span class="line">     43: </span><br><span class="line">     44: </span><br><span class="line">===============================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Finished <span class="keyword">in</span> 0.001588 seconds.</span><br><span class="line"></span><br><span class="line">1 tests, 17 assertions, 1 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications</span><br><span class="line">0% passed</span><br><span class="line"></span><br><span class="line">629.72 tests/s, 10705.29 assertions/s</span><br><span class="line"></span><br><span class="line">Process finished with <span class="built_in">exit</span> code 1</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -125,18 +125,18 @@
     </summary>
     
     
-      <category term="ruby" scheme="http://www.luaxlou.com/tags/ruby/"/>
+      <category term="ruby" scheme="http://www.itsmylife.top/tags/ruby/"/>
     
-      <category term="tdd" scheme="http://www.luaxlou.com/tags/tdd/"/>
+      <category term="tdd" scheme="http://www.itsmylife.top/tags/tdd/"/>
     
-      <category term="testunit" scheme="http://www.luaxlou.com/tags/testunit/"/>
+      <category term="testunit" scheme="http://www.itsmylife.top/tags/testunit/"/>
     
   </entry>
   
   <entry>
     <title>Ruby TDD best choice,Test::Unit</title>
-    <link href="http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/"/>
-    <id>http://www.luaxlou.com/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/</id>
+    <link href="http://www.itsmylife.top/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/"/>
+    <id>http://www.itsmylife.top/2016/07/10/ruby-tdd-testunit-minitest-respec-and-rake/</id>
     <published>2016-07-10T03:31:03.000Z</published>
     <updated>2016-07-19T14:49:28.000Z</updated>
     
@@ -176,80 +176,79 @@
     </summary>
     
     
-      <category term="ruby" scheme="http://www.luaxlou.com/tags/ruby/"/>
+      <category term="ruby" scheme="http://www.itsmylife.top/tags/ruby/"/>
     
-      <category term="tdd" scheme="http://www.luaxlou.com/tags/tdd/"/>
+      <category term="tdd" scheme="http://www.itsmylife.top/tags/tdd/"/>
     
-      <category term="testunit" scheme="http://www.luaxlou.com/tags/testunit/"/>
+      <category term="testunit" scheme="http://www.itsmylife.top/tags/testunit/"/>
     
-      <category term="minitest" scheme="http://www.luaxlou.com/tags/minitest/"/>
+      <category term="minitest" scheme="http://www.itsmylife.top/tags/minitest/"/>
     
-      <category term="rspec" scheme="http://www.luaxlou.com/tags/rspec/"/>
+      <category term="rspec" scheme="http://www.itsmylife.top/tags/rspec/"/>
     
-      <category term="rake" scheme="http://www.luaxlou.com/tags/rake/"/>
+      <category term="rake" scheme="http://www.itsmylife.top/tags/rake/"/>
     
   </entry>
   
   <entry>
     <title>React Native IDE Nuclide Tips</title>
-    <link href="http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/"/>
-    <id>http://www.luaxlou.com/2016/04/22/React-Native-IDE-Nuclide-Tips/</id>
+    <link href="http://www.itsmylife.top/2016/04/22/React-Native-IDE-Nuclide-Tips/"/>
+    <id>http://www.itsmylife.top/2016/04/22/React-Native-IDE-Nuclide-Tips/</id>
     <published>2016-04-21T23:38:00.000Z</published>
     <updated>2016-04-22T03:53:35.000Z</updated>
     
     <content type="html"><![CDATA[<p>Lastest: React Native v0.23.1,Atom v1.7.2,Nuclide v0.131.0</p>
 <ul>
-<li>Github上选择最新的发布版本,不要选择官网的下载链接<br>(<a href="https://github.com/atom/atom/releases" target="_blank" rel="external">https://github.com/atom/atom/releases</a>)</li>
+<li>Github上选择最新的发布版本,不要选择官网的下载链接<br>(<a href="https://github.com/atom/atom/releases" target="_blank" rel="noopener">https://github.com/atom/atom/releases</a>)</li>
 <li>安装Nuclide插件,使用APM安装,cross wall<br>apm install nuclide –verbose</li>
 </ul>
 <a id="more"></a>
 <ul>
-<li>flow 无法启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew upgrade flow</div></pre></td></tr></table></figure>
-</li>
+<li>flow 无法启动<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew upgrade flow</span></span><br></pre></td></tr></table></figure>
+根目录下运行flow看看<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> flow</span></span><br><span class="line">.flowconfig:91 Wrong version of Flow. The config specifies version 0.22.0 but this is version 0.22.1</span><br></pre></td></tr></table></figure>
+修改.flowconfig,矫正版本号</li>
 </ul>
-<p>根目录下运行flow看看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ flow</div><div class="line">.flowconfig:91 Wrong version of Flow. The config specifies version 0.22.0 but this is version 0.22.1</div></pre></td></tr></table></figure></p>
-<p>修改.flowconfig,矫正版本号</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;Lastest: React Native v0.23.1,Atom v1.7.2,Nuclide v0.131.0&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Github上选择最新的发布版本,不要选择官网的下载链接&lt;br&gt;(&lt;a href=&quot;https://github.com/atom/atom/releases&quot;&gt;https://github.com/atom/atom/releases&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Github上选择最新的发布版本,不要选择官网的下载链接&lt;br&gt;(&lt;a href=&quot;https://github.com/atom/atom/releases&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/atom/atom/releases&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;安装Nuclide插件,使用APM安装,cross wall&lt;br&gt;apm install nuclide –verbose&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
     
     
-      <category term="React Native" scheme="http://www.luaxlou.com/tags/React-Native/"/>
+      <category term="React Native" scheme="http://www.itsmylife.top/tags/React-Native/"/>
     
-      <category term="Nuclide" scheme="http://www.luaxlou.com/tags/Nuclide/"/>
+      <category term="Nuclide" scheme="http://www.itsmylife.top/tags/Nuclide/"/>
     
-      <category term="Atom" scheme="http://www.luaxlou.com/tags/Atom/"/>
+      <category term="Atom" scheme="http://www.itsmylife.top/tags/Atom/"/>
     
   </entry>
   
   <entry>
     <title>Nodejs Develop Tips</title>
-    <link href="http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/"/>
-    <id>http://www.luaxlou.com/2016/04/03/Nodejs-Develop-Tips/</id>
+    <link href="http://www.itsmylife.top/2016/04/03/Nodejs-Develop-Tips/"/>
+    <id>http://www.itsmylife.top/2016/04/03/Nodejs-Develop-Tips/</id>
     <published>2016-04-03T00:28:07.000Z</published>
     <updated>2016-08-02T22:24:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="中文资料"><a href="#中文资料" class="headerlink" title="中文资料"></a>中文资料</h2><ul>
-<li><a href="https://zhaoda.gitbooks.io/webpack/content/" target="_blank" rel="external">Webpack 中文指南</a></li>
-<li><a href="http://reactjs.cn/" target="_blank" rel="external">Reactjs 中文文档</a></li>
-<li><a href="https://github.com/guo-yu/koa-guide" target="_blank" rel="external">koa 中文文档</a></li>
-<li><a href="http://www.alloyteam.com/2016/03/es6-front-end-developers-will-have-to-know-the-top-ten-properties/" target="_blank" rel="external">前端开发者不得不知的ES6十大特性</a></li>
-<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="external">React/React Native 的ES5 ES6写法对照表</a></li>
-<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6入门</a></li>
+<li><a href="https://zhaoda.gitbooks.io/webpack/content/" target="_blank" rel="noopener">Webpack 中文指南</a></li>
+<li><a href="http://reactjs.cn/" target="_blank" rel="noopener">Reactjs 中文文档</a></li>
+<li><a href="https://github.com/guo-yu/koa-guide" target="_blank" rel="noopener">koa 中文文档</a></li>
+<li><a href="http://www.alloyteam.com/2016/03/es6-front-end-developers-will-have-to-know-the-top-ten-properties/" target="_blank" rel="noopener">前端开发者不得不知的ES6十大特性</a></li>
+<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="noopener">React/React Native 的ES5 ES6写法对照表</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6入门</a></li>
 </ul>
 <h2 id="中文社区"><a href="#中文社区" class="headerlink" title="中文社区"></a>中文社区</h2><ul>
-<li><a href="http://cnodejs.org/" target="_blank" rel="external">CNodejs 社区</a></li>
+<li><a href="http://cnodejs.org/" target="_blank" rel="noopener">CNodejs 社区</a></li>
 </ul>
 <h2 id="英文资料"><a href="#英文资料" class="headerlink" title="英文资料"></a>英文资料</h2><ul>
-<li><a href="http://mongoosejs.com/docs/guide.html" target="_blank" rel="external">mongoose 文档</a></li>
+<li><a href="http://mongoosejs.com/docs/guide.html" target="_blank" rel="noopener">mongoose 文档</a></li>
 </ul>
 ]]></content>
     
@@ -261,44 +260,39 @@
     </summary>
     
     
-      <category term="node.js" scheme="http://www.luaxlou.com/tags/node-js/"/>
+      <category term="node.js" scheme="http://www.itsmylife.top/tags/node-js/"/>
     
   </entry>
   
   <entry>
     <title>React Native Develop Tips</title>
-    <link href="http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/"/>
-    <id>http://www.luaxlou.com/2016/03/31/React-Native-Develop-Tips/</id>
+    <link href="http://www.itsmylife.top/2016/03/31/React-Native-Develop-Tips/"/>
+    <id>http://www.itsmylife.top/2016/03/31/React-Native-Develop-Tips/</id>
     <published>2016-03-31T03:24:37.000Z</published>
     <updated>2016-07-23T01:35:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>Lastest: React Native v0.22,Xcode 7.2.1</p>
 <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
-<li><a href="http://reactnative.cn/" target="_blank" rel="external">React Native 中文文档</a></li>
-<li><a href="https://github.com/ele828/react-native-guide" target="_blank" rel="external">React Native学习指南</a></li>
-<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="external">React/React Native 的ES5 ES6写法对照表</a></li>
-<li><a href="http://f8-app.liaohuqiu.net/" target="_blank" rel="external">构建 Facebook F8 2016 App / React Native 开发指南</a></li>
-<li><a href="http://redux.js.org/" target="_blank" rel="external">Redux 英文文档</a></li>
-<li><a href="http://camsong.github.io/redux-in-chinese/" target="_blank" rel="external">Redux 中文文档</a></li>
-<li><a href="http://www.w3cplus.com/css3/a-guide-to-flexbox.html" target="_blank" rel="external">一个完整的Flexbox指南</a></li>
+<li><a href="http://reactnative.cn/" target="_blank" rel="noopener">React Native 中文文档</a></li>
+<li><a href="https://github.com/ele828/react-native-guide" target="_blank" rel="noopener">React Native学习指南</a></li>
+<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="noopener">React/React Native 的ES5 ES6写法对照表</a></li>
+<li><a href="http://f8-app.liaohuqiu.net/" target="_blank" rel="noopener">构建 Facebook F8 2016 App / React Native 开发指南</a></li>
+<li><a href="http://redux.js.org/" target="_blank" rel="noopener">Redux 英文文档</a></li>
+<li><a href="http://camsong.github.io/redux-in-chinese/" target="_blank" rel="noopener">Redux 中文文档</a></li>
+<li><a href="http://www.w3cplus.com/css3/a-guide-to-flexbox.html" target="_blank" rel="noopener">一个完整的Flexbox指南</a></li>
 </ul>
 <a id="more"></a>
 <h2 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><ul>
 <li>ctrl + commond +z 和QQ冲突,关闭</li>
 <li>ctrl + commond +z 开启 Live Reload</li>
-<li>更改NPM源<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm config set registry https://registry.npm.taobao.org</div><div class="line">$ npm config set disturl https://npm.taobao.org/dist</div></pre></td></tr></table></figure>
-</li>
+<li>更改NPM源<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config <span class="built_in">set</span> disturl https://npm.taobao.org/dist</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ul>
 <li>快捷方式<br>  $ vi .bashrc<br>  alias rn=”react-native”</li>
 </ul>
 <h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><ul>
-<li><p>离线模式打包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rn bundle --platform=ios --entry-file=index.ios.js --bundle-output ios/main.jsbundle</div></pre></td></tr></table></figure>
-</li>
-<li><p>模拟器下无法使用bundle打包运行</p>
-<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>等待</p>
-</li>
+<li>离线模式打包<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rn bundle --platform=ios --entry-file=index.ios.js --bundle-output ios/main.jsbundle</span></span><br></pre></td></tr></table></figure></li>
+<li>模拟器下无法使用bundle打包运行<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2>等待</li>
 </ul>
 ]]></content>
     
@@ -306,30 +300,30 @@
     
       &lt;p&gt;Lastest: React Native v0.22,Xcode 7.2.1&lt;/p&gt;
 &lt;h2 id=&quot;资料&quot;&gt;&lt;a href=&quot;#资料&quot; class=&quot;headerlink&quot; title=&quot;资料&quot;&gt;&lt;/a&gt;资料&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://reactnative.cn/&quot;&gt;React Native 中文文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ele828/react-native-guide&quot;&gt;React Native学习指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8&quot;&gt;React/React Native 的ES5 ES6写法对照表&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://f8-app.liaohuqiu.net/&quot;&gt;构建 Facebook F8 2016 App / React Native 开发指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux 英文文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://camsong.github.io/redux-in-chinese/&quot;&gt;Redux 中文文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/a-guide-to-flexbox.html&quot;&gt;一个完整的Flexbox指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://reactnative.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;React Native 中文文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ele828/react-native-guide&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;React Native学习指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;React/React Native 的ES5 ES6写法对照表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://f8-app.liaohuqiu.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;构建 Facebook F8 2016 App / React Native 开发指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://redux.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Redux 英文文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://camsong.github.io/redux-in-chinese/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Redux 中文文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/a-guide-to-flexbox.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;一个完整的Flexbox指南&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
     
     
-      <category term="React Native" scheme="http://www.luaxlou.com/tags/React-Native/"/>
+      <category term="React Native" scheme="http://www.itsmylife.top/tags/React-Native/"/>
     
   </entry>
   
   <entry>
     <title>React Project Tips</title>
-    <link href="http://www.luaxlou.com/2016/03/29/React-Project-Tips/"/>
-    <id>http://www.luaxlou.com/2016/03/29/React-Project-Tips/</id>
+    <link href="http://www.itsmylife.top/2016/03/29/React-Project-Tips/"/>
+    <id>http://www.itsmylife.top/2016/03/29/React-Project-Tips/</id>
     <published>2016-03-29T07:27:02.000Z</published>
     <updated>2016-04-22T07:31:21.000Z</updated>
     
-    <content type="html"><![CDATA[<p>此文为<a href="https://github.com/luaxlou/NodeSearch.git" target="_blank" rel="external">Node Resource Search项目</a>的开发历程</p>
+    <content type="html"><![CDATA[<p>此文为<a href="https://github.com/luaxlou/NodeSearch.git" target="_blank" rel="noopener">Node Resource Search项目</a>的开发历程</p>
 <p>开发思路,这个跟作者的性格有关,作者不喜欢做一些重复的工作,所有能不依赖人工的就不依赖人工,能简单的绝对不复杂.</p>
 <p>他会订阅一些开放的优质资源,可能会使用以下的方式:</p>
 <ul>
@@ -345,16 +339,16 @@
 <li>移动端使用场景</li>
 <li>管理内容订阅,标签管理等</li>
 </ul>
-<h2 id="install-packages"><a href="#install-packages" class="headerlink" title="install packages"></a>install packages</h2><h3 id="client"><a href="#client" class="headerlink" title="client"></a>client</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"babel-core"</span>: <span class="string">"^6.7.4"</span>,</div><div class="line">  <span class="attr">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</div><div class="line">  <span class="attr">"babel-preset-es2015"</span>: <span class="string">"^6.6.0"</span>,</div><div class="line">  <span class="attr">"babel-preset-react"</span>: <span class="string">"^6.5.0"</span>,</div><div class="line">  <span class="attr">"browser-sync"</span>: <span class="string">"^2.11.2"</span>,</div><div class="line">  <span class="attr">"browser-sync-webpack-plugin"</span>: <span class="string">"^1.0.1"</span>,</div><div class="line">  <span class="attr">"react"</span>: <span class="string">"^0.14.8"</span>,</div><div class="line">  <span class="attr">"react-dom"</span>: <span class="string">"^0.14.8"</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"commander"</span>: <span class="string">"^2.9.0"</span>,</div><div class="line">    <span class="attr">"koa"</span>: <span class="string">"^1.2.0"</span>,</div><div class="line">    <span class="attr">"koa-jsonp"</span>: <span class="string">"^0.2.0"</span>,</div><div class="line">    <span class="attr">"koa-route"</span>: <span class="string">"^2.4.2"</span>,</div><div class="line">    <span class="attr">"koa-router"</span>: <span class="string">"^5.4.0"</span>,</div><div class="line">    <span class="attr">"md5"</span>: <span class="string">"^2.1.0"</span>,</div><div class="line">    <span class="attr">"mongoose"</span>: <span class="string">"^4.4.11"</span>,</div><div class="line">    <span class="attr">"parse-rss"</span>: <span class="string">"^1.0.3"</span>,</div><div class="line">    <span class="attr">"promise"</span>: <span class="string">"^7.1.1"</span>,</div><div class="line">    <span class="attr">"redis"</span>: <span class="string">"^2.6.0-1"</span>,</div><div class="line">    <span class="attr">"rss-parser"</span>: <span class="string">"^2.2.4"</span>,</div><div class="line">    <span class="attr">"schedule"</span>: <span class="string">"^0.1.0"</span>,</div><div class="line">    <span class="attr">"sendmail"</span>: <span class="string">"^0.2.1"</span>,</div><div class="line">    <span class="attr">"koa-body"</span>: <span class="string">"^1.4.0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js:"></a>webpack.config.js:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> BrowserSyncPlugin = <span class="built_in">require</span>(<span class="string">'browser-sync-webpack-plugin'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  entry: <span class="string">'./app/entry.js'</span>,</div><div class="line">  output: &#123;</div><div class="line">    path: __dirname,</div><div class="line">    filename: <span class="string">"./public/bundle.js"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    loaders: [&#123;</div><div class="line">      test: <span class="regexp">/\.css$/</span>,</div><div class="line">      loader: <span class="string">"style!css"</span></div><div class="line">    &#125;, &#123;</div><div class="line">      test: <span class="regexp">/\.js$/</span>,</div><div class="line">      exclude: <span class="regexp">/node_modules/</span>,</div><div class="line">      loader: <span class="string">"babel"</span>,</div><div class="line">      query: &#123;</div><div class="line">        presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</div><div class="line">      &#125;</div><div class="line">    &#125;]</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    <span class="keyword">new</span> BrowserSyncPlugin(&#123;</div><div class="line">      host: <span class="string">'localhost'</span>,</div><div class="line">      port: <span class="number">3000</span>,</div><div class="line">      server: &#123;</div><div class="line">        baseDir: [<span class="string">'./public'</span>]</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="run-with-live-reload"><a href="#run-with-live-reload" class="headerlink" title="run with live reload"></a>run with live reload</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack -w</div></pre></td></tr></table></figure>
+<h2 id="install-packages"><a href="#install-packages" class="headerlink" title="install packages"></a>install packages</h2><h3 id="client"><a href="#client" class="headerlink" title="client"></a>client</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"babel-core"</span>: <span class="string">"^6.7.4"</span>,</span><br><span class="line">  <span class="attr">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</span><br><span class="line">  <span class="attr">"babel-preset-es2015"</span>: <span class="string">"^6.6.0"</span>,</span><br><span class="line">  <span class="attr">"babel-preset-react"</span>: <span class="string">"^6.5.0"</span>,</span><br><span class="line">  <span class="attr">"browser-sync"</span>: <span class="string">"^2.11.2"</span>,</span><br><span class="line">  <span class="attr">"browser-sync-webpack-plugin"</span>: <span class="string">"^1.0.1"</span>,</span><br><span class="line">  <span class="attr">"react"</span>: <span class="string">"^0.14.8"</span>,</span><br><span class="line">  <span class="attr">"react-dom"</span>: <span class="string">"^0.14.8"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"commander"</span>: <span class="string">"^2.9.0"</span>,</span><br><span class="line">    <span class="attr">"koa"</span>: <span class="string">"^1.2.0"</span>,</span><br><span class="line">    <span class="attr">"koa-jsonp"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="attr">"koa-route"</span>: <span class="string">"^2.4.2"</span>,</span><br><span class="line">    <span class="attr">"koa-router"</span>: <span class="string">"^5.4.0"</span>,</span><br><span class="line">    <span class="attr">"md5"</span>: <span class="string">"^2.1.0"</span>,</span><br><span class="line">    <span class="attr">"mongoose"</span>: <span class="string">"^4.4.11"</span>,</span><br><span class="line">    <span class="attr">"parse-rss"</span>: <span class="string">"^1.0.3"</span>,</span><br><span class="line">    <span class="attr">"promise"</span>: <span class="string">"^7.1.1"</span>,</span><br><span class="line">    <span class="attr">"redis"</span>: <span class="string">"^2.6.0-1"</span>,</span><br><span class="line">    <span class="attr">"rss-parser"</span>: <span class="string">"^2.2.4"</span>,</span><br><span class="line">    <span class="attr">"schedule"</span>: <span class="string">"^0.1.0"</span>,</span><br><span class="line">    <span class="attr">"sendmail"</span>: <span class="string">"^0.2.1"</span>,</span><br><span class="line">    <span class="attr">"koa-body"</span>: <span class="string">"^1.4.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js:"></a>webpack.config.js:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> BrowserSyncPlugin = <span class="built_in">require</span>(<span class="string">'browser-sync-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./app/entry.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname,</span><br><span class="line">    filename: <span class="string">"./public/bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loader: <span class="string">"style!css"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      loader: <span class="string">"babel"</span>,</span><br><span class="line">      query: &#123;</span><br><span class="line">        presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> BrowserSyncPlugin(&#123;</span><br><span class="line">      host: <span class="string">'localhost'</span>,</span><br><span class="line">      port: <span class="number">3000</span>,</span><br><span class="line">      server: &#123;</span><br><span class="line">        baseDir: [<span class="string">'./public'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="run-with-live-reload"><a href="#run-with-live-reload" class="headerlink" title="run with live reload"></a>run with live reload</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack -w</span><br></pre></td></tr></table></figure>
 <p>to be continued</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;此文为&lt;a href=&quot;https://github.com/luaxlou/NodeSearch.git&quot;&gt;Node Resource Search项目&lt;/a&gt;的开发历程&lt;/p&gt;
+      &lt;p&gt;此文为&lt;a href=&quot;https://github.com/luaxlou/NodeSearch.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Node Resource Search项目&lt;/a&gt;的开发历程&lt;/p&gt;
 &lt;p&gt;开发思路,这个跟作者的性格有关,作者不喜欢做一些重复的工作,所有能不依赖人工的就不依赖人工,能简单的绝对不复杂.&lt;/p&gt;
 &lt;p&gt;他会订阅一些开放的优质资源,可能会使用以下的方式:&lt;/p&gt;
 &lt;ul&gt;
@@ -365,70 +359,70 @@
     </summary>
     
     
-      <category term="node.js" scheme="http://www.luaxlou.com/tags/node-js/"/>
+      <category term="node.js" scheme="http://www.itsmylife.top/tags/node-js/"/>
     
-      <category term="webpack" scheme="http://www.luaxlou.com/tags/webpack/"/>
+      <category term="webpack" scheme="http://www.itsmylife.top/tags/webpack/"/>
     
-      <category term="babel" scheme="http://www.luaxlou.com/tags/babel/"/>
+      <category term="babel" scheme="http://www.itsmylife.top/tags/babel/"/>
     
-      <category term="react" scheme="http://www.luaxlou.com/tags/react/"/>
+      <category term="react" scheme="http://www.itsmylife.top/tags/react/"/>
     
-      <category term="es6" scheme="http://www.luaxlou.com/tags/es6/"/>
+      <category term="es6" scheme="http://www.itsmylife.top/tags/es6/"/>
     
   </entry>
   
   <entry>
     <title>Hexo Tips</title>
-    <link href="http://www.luaxlou.com/2016/03/28/Hexo-Tips/"/>
-    <id>http://www.luaxlou.com/2016/03/28/Hexo-Tips/</id>
+    <link href="http://www.itsmylife.top/2016/03/28/Hexo-Tips/"/>
+    <id>http://www.itsmylife.top/2016/03/28/Hexo-Tips/</id>
     <published>2016-03-28T15:48:37.000Z</published>
     <updated>2016-04-27T15:10:29.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>能有更好的写作体验.</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p <span class="string">'Hello Hexo!!!!!!!!!'</span></div></pre></td></tr></table></figure>
-<h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># ./d.sh</div><div class="line">hexo g</div><div class="line">hexo p</div></pre></td></tr></table></figure>
-<h3 id="多地写博客"><a href="#多地写博客" class="headerlink" title="多地写博客"></a>多地写博客</h3><p>push to github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ./p.sh</div><div class="line">git add --all</div><div class="line">git commit -am &apos;new post&apos;</div><div class="line">git push</div></pre></td></tr></table></figure></p>
-<h3 id="rss生成"><a href="#rss生成" class="headerlink" title="rss生成"></a>rss生成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i hexo-generator-feed --save</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>能有更好的写作体验.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p <span class="string">'Hello Hexo!!!!!!!!!'</span></span><br></pre></td></tr></table></figure>
+<h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ./d.sh</span></span><br><span class="line">hexo g</span><br><span class="line">hexo p</span><br></pre></td></tr></table></figure>
+<h3 id="多地写博客"><a href="#多地写博客" class="headerlink" title="多地写博客"></a>多地写博客</h3><p>push to github<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ./p.sh</span></span><br><span class="line">git add --all</span><br><span class="line">git commit -am 'new post'</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<h3 id="rss生成"><a href="#rss生成" class="headerlink" title="rss生成"></a>rss生成</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
 <h3 id="使用atom写博客"><a href="#使用atom写博客" class="headerlink" title="使用atom写博客"></a>使用atom写博客</h3><p>atom 插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install atom-hexo</div></pre></td></tr></table></figure>
-<p>more info:<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm install atom-hexo</span><br></pre></td></tr></table></figure>
+<p>more info:<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p>
 <a id="more"></a>
 <hr>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;能有更好的写作体验.&lt;/p&gt;
-&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;p &lt;span class=&quot;string&quot;&gt;&#39;Hello Hexo!!!!!!!!!&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;install&quot;&gt;&lt;a href=&quot;#install&quot; class=&quot;headerlink&quot; title=&quot;install&quot;&gt;&lt;/a&gt;install&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-cli -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;deploy&quot;&gt;&lt;a href=&quot;#deploy&quot; class=&quot;headerlink&quot; title=&quot;deploy&quot;&gt;&lt;/a&gt;deploy&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# ./d.sh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo g&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo p&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;多地写博客&quot;&gt;&lt;a href=&quot;#多地写博客&quot; class=&quot;headerlink&quot; title=&quot;多地写博客&quot;&gt;&lt;/a&gt;多地写博客&lt;/h3&gt;&lt;p&gt;push to github&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# ./p.sh&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git add --all&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git commit -am &amp;apos;new post&amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git push&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;rss生成&quot;&gt;&lt;a href=&quot;#rss生成&quot; class=&quot;headerlink&quot; title=&quot;rss生成&quot;&gt;&lt;/a&gt;rss生成&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm i hexo-generator-feed --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;能有更好的写作体验.&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;p &lt;span class=&quot;string&quot;&gt;&#39;Hello Hexo!!!!!!!!!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;install&quot;&gt;&lt;a href=&quot;#install&quot; class=&quot;headerlink&quot; title=&quot;install&quot;&gt;&lt;/a&gt;install&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install hexo-cli -g&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;deploy&quot;&gt;&lt;a href=&quot;#deploy&quot; class=&quot;headerlink&quot; title=&quot;deploy&quot;&gt;&lt;/a&gt;deploy&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; ./d.sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo p&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;多地写博客&quot;&gt;&lt;a href=&quot;#多地写博客&quot; class=&quot;headerlink&quot; title=&quot;多地写博客&quot;&gt;&lt;/a&gt;多地写博客&lt;/h3&gt;&lt;p&gt;push to github&lt;br&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; ./p.sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git add --all&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -am &#39;new post&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;rss生成&quot;&gt;&lt;a href=&quot;#rss生成&quot; class=&quot;headerlink&quot; title=&quot;rss生成&quot;&gt;&lt;/a&gt;rss生成&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i hexo-generator-feed --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;使用atom写博客&quot;&gt;&lt;a href=&quot;#使用atom写博客&quot; class=&quot;headerlink&quot; title=&quot;使用atom写博客&quot;&gt;&lt;/a&gt;使用atom写博客&lt;/h3&gt;&lt;p&gt;atom 插件&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;apm install atom-hexo&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;more info:&lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apm install atom-hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;more info:&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
     
-      <category term="hexo" scheme="http://www.luaxlou.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.itsmylife.top/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Ruby元编程第二版：Ruby必看的一本书</title>
-    <link href="http://www.luaxlou.com/2015/09/03/jianshu_1908695/"/>
-    <id>http://www.luaxlou.com/2015/09/03/jianshu_1908695/</id>
+    <link href="http://www.itsmylife.top/2015/09/03/jianshu_1908695/"/>
+    <id>http://www.itsmylife.top/2015/09/03/jianshu_1908695/</id>
     <published>2015-09-03T07:17:09.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -443,14 +437,14 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>吃完饭后，逛了下新华书店</title>
-    <link href="http://www.luaxlou.com/2015/09/03/jianshu_1908634/"/>
-    <id>http://www.luaxlou.com/2015/09/03/jianshu_1908634/</id>
+    <link href="http://www.itsmylife.top/2015/09/03/jianshu_1908634/"/>
+    <id>http://www.itsmylife.top/2015/09/03/jianshu_1908634/</id>
     <published>2015-09-03T07:13:54.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -467,14 +461,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://www.luaxlou.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://www.itsmylife.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Agile Java：编程进阶必读</title>
-    <link href="http://www.luaxlou.com/2015/08/25/jianshu_1707565/"/>
-    <id>http://www.luaxlou.com/2015/08/25/jianshu_1707565/</id>
+    <link href="http://www.itsmylife.top/2015/08/25/jianshu_1707565/"/>
+    <id>http://www.itsmylife.top/2015/08/25/jianshu_1707565/</id>
     <published>2015-08-25T15:30:35.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -495,14 +489,14 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>uml指南第二版：uml一本就够了</title>
-    <link href="http://www.luaxlou.com/2015/08/23/jianshu_1680144/"/>
-    <id>http://www.luaxlou.com/2015/08/23/jianshu_1680144/</id>
+    <link href="http://www.itsmylife.top/2015/08/23/jianshu_1680144/"/>
+    <id>http://www.itsmylife.top/2015/08/23/jianshu_1680144/</id>
     <published>2015-08-23T06:35:46.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -522,14 +516,14 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>阅读:书目</title>
-    <link href="http://www.luaxlou.com/2015/08/23/jianshu_1674689/"/>
-    <id>http://www.luaxlou.com/2015/08/23/jianshu_1674689/</id>
+    <link href="http://www.itsmylife.top/2015/08/23/jianshu_1674689/"/>
+    <id>http://www.itsmylife.top/2015/08/23/jianshu_1674689/</id>
     <published>2015-08-23T06:35:20.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -544,35 +538,35 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>开始写简书,放弃wordpress</title>
-    <link href="http://www.luaxlou.com/2015/08/23/jianshu_1674635/"/>
-    <id>http://www.luaxlou.com/2015/08/23/jianshu_1674635/</id>
+    <link href="http://www.itsmylife.top/2015/08/23/jianshu_1674635/"/>
+    <id>http://www.itsmylife.top/2015/08/23/jianshu_1674635/</id>
     <published>2015-08-23T06:35:05.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p></p><p>惯例，以Gantz开局</p><div class="image-package"><img src="/images/698777-430be2497960c5a0.png" data-original-src="http://upload-images.jianshu.io/upload_images/698777-430be2497960c5a0.png" data-image-slug="430be2497960c5a0" data-width="800" data-height="800"><br><div class="image-caption"></div></div><p>　　看来现在的科技是发达了,以前想实现的种种方式现在都被很好地解决.就拿互联网写作这件事来说,在这里被完美解决.不用太多的负担,只管专注去写就行.</p><p>　　简书的操作体验很棒,相比起来wordpress就难用多了.markdown的语法在熟悉中,markdown的写作看样子是很高效的,很适合html这种内容的编辑.</p><p>　　没有书目是很大德缺憾,不过可以挖掘挖掘,看这个能不能以其他方式被解决.最后看了下,看来是通过文集可以解决,不错.</p><p>　　接下来,我想从我一直想做的事情开始,就是做一个书单.</p><p>大概构思是这样的,分两条时间轴</p><p>　　1.读书单:列出想读的书目,以及愿望,也就是为什么想读.</p><p>　　2.读过的书:对读过的书进行整理,重新过一遍,温故而知新.</p><p>　　以前想用豆瓣来做这件事,但是最终也没研究出来怎么做</p><p><br></p><div class="image-caption"></div><p></p>
+    <content type="html"><![CDATA[<p><p>惯例，以Gantz开局</p><div class="image-package"><img src="/images/698777-430be2497960c5a0.png" data-original-src="http://upload-images.jianshu.io/upload_images/698777-430be2497960c5a0.png" data-image-slug="430be2497960c5a0" data-width="800" data-height="800"><br><div class="image-caption"></div></div><p>　　看来现在的科技是发达了,以前想实现的种种方式现在都被很好地解决.就拿互联网写作这件事来说,在这里被完美解决.不用太多的负担,只管专注去写就行.</p><p>　　简书的操作体验很棒,相比起来wordpress就难用多了.markdown的语法在熟悉中,markdown的写作看样子是很高效的,很适合html这种内容的编辑.</p><p>　　没有书目是很大德缺憾,不过可以挖掘挖掘,看这个能不能以其他方式被解决.最后看了下,看来是通过文集可以解决,不错.</p><p>　　接下来,我想从我一直想做的事情开始,就是做一个书单.</p><p>大概构思是这样的,分两条时间轴</p><p>　　1.读书单:列出想读的书目,以及愿望,也就是为什么想读.</p><p>　　2.读过的书:对读过的书进行整理,重新过一遍,温故而知新.</p><p>　　以前想用豆瓣来做这件事,但是最终也没研究出来怎么做</p><p><br></p><div class="image-caption"></div></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;/p&gt;&lt;p&gt;惯例，以Gantz开局&lt;/p&gt;&lt;div class=&quot;image-package&quot;&gt;&lt;img src=&quot;/images/698777-430be2497960c5a0.png&quot; data-original-src=&quot;http://upload-images.j
+      &lt;p&gt;&lt;p&gt;惯例，以Gantz开局&lt;/p&gt;&lt;div class=&quot;image-package&quot;&gt;&lt;img src=&quot;/images/698777-430be2497960c5a0.png&quot; data-original-src=&quot;http://upload-images.jians
     
     </summary>
     
     
-      <category term="随笔" scheme="http://www.luaxlou.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://www.itsmylife.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>午后，看电视《大舜》</title>
-    <link href="http://www.luaxlou.com/2015/08/23/jianshu_1707568/"/>
-    <id>http://www.luaxlou.com/2015/08/23/jianshu_1707568/</id>
+    <link href="http://www.itsmylife.top/2015/08/23/jianshu_1707568/"/>
+    <id>http://www.itsmylife.top/2015/08/23/jianshu_1707568/</id>
     <published>2015-08-23T06:33:56.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -587,14 +581,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://www.luaxlou.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://www.itsmylife.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>能收拾好屋子的人，能写好程序</title>
-    <link href="http://www.luaxlou.com/2015/08/23/jianshu_1800267/"/>
-    <id>http://www.luaxlou.com/2015/08/23/jianshu_1800267/</id>
+    <link href="http://www.itsmylife.top/2015/08/23/jianshu_1800267/"/>
+    <id>http://www.itsmylife.top/2015/08/23/jianshu_1800267/</id>
     <published>2015-08-23T06:33:01.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -609,14 +603,14 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://www.luaxlou.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://www.itsmylife.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>UML与Enterprise Architect 7.5团队开发实务手册：UML良好实践</title>
-    <link href="http://www.luaxlou.com/2015/08/05/jianshu_1680151/"/>
-    <id>http://www.luaxlou.com/2015/08/05/jianshu_1680151/</id>
+    <link href="http://www.itsmylife.top/2015/08/05/jianshu_1680151/"/>
+    <id>http://www.itsmylife.top/2015/08/05/jianshu_1680151/</id>
     <published>2015-08-05T13:47:56.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
@@ -632,20 +626,20 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>Remote：远程工作实践</title>
-    <link href="http://www.luaxlou.com/2015/08/05/jianshu_1674677/"/>
-    <id>http://www.luaxlou.com/2015/08/05/jianshu_1674677/</id>
+    <link href="http://www.itsmylife.top/2015/08/05/jianshu_1674677/"/>
+    <id>http://www.itsmylife.top/2015/08/05/jianshu_1674677/</id>
     <published>2015-08-05T13:47:16.000Z</published>
     <updated>2016-08-03T15:31:54.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/698777-9682b0e90568d4a0.png" alt="remote book"> </p>
 <p>为什么想看?<br>因为看过了《getting real》和《rework》这两本很有价值的书,于是乎,感觉《remote》应该不错。</p>
-<p>有幸从jianshu上看到了这本书的中文翻译, 感谢作者。<a href="http://www.jianshu.com/p/dFvwtP" target="_blank" rel="external">http://www.jianshu.com/p/dFvwtP</a></p>
+<p>有幸从jianshu上看到了这本书的中文翻译, 感谢作者。<a href="http://www.jianshu.com/p/dFvwtP" target="_blank" rel="noopener">http://www.jianshu.com/p/dFvwtP</a></p>
 <p>在我们还在犹豫是否远程工作时，37signals给了我们一个良好实践。</p>
 ]]></content>
     
@@ -657,7 +651,7 @@
     </summary>
     
     
-      <category term="读书" scheme="http://www.luaxlou.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="http://www.itsmylife.top/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
