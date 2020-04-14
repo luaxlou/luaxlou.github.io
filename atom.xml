@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Geeker Life</title>
   
-  <subtitle>Good morning,my friend.</subtitle>
+  <subtitle>你还好吗？我的朋友。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.itsmylife.top/"/>
